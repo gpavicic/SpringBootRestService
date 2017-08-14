@@ -1,12 +1,12 @@
 package com.company.goxy.service;
 
-import java.util.Collection;
-
-import org.assertj.core.util.Lists;
+import com.company.goxy.dao.UserDAO;
+import com.company.goxy.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.company.goxy.model.User;
-import com.company.goxy.dao.UserDAO;
+import java.util.Collection;
+import java.util.stream.Collectors;
+import java.util.stream.StreamSupport;
 
 public class UserServiceBean implements UserService {
 	@Autowired
@@ -15,7 +15,7 @@ public class UserServiceBean implements UserService {
 	@Override
 	public Collection<User> findAll() {
 		Iterable<User> usersI = userDAO.findAll();
-		Collection<User> users = Lists.newArrayList(usersI);
+		Collection<User> users = StreamSupport.stream(usersI.spliterator(),false).collect(Collectors.toList());
 		return users;
 	}
 
