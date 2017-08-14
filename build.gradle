@@ -38,7 +38,8 @@ dependencies {
     
     compile("org.springframework.boot:spring-boot-starter-data-jpa")
     compile('org.hibernate:hibernate-core')
-    compile("org.postgresql:postgresql:${postgresql_version}")
+//    compile("org.postgresql:postgresql:${postgresql_version}")
+    compile('mysql:mysql-connector-java')
     compile('org.hsqldb:hsqldb')
     
     testCompile("org.springframework.boot:spring-boot-starter-test")  
